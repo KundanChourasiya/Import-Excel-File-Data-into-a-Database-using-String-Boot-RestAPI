@@ -22,7 +22,7 @@
 Before running the API server, you should update the database config inside the application.properties file.
 Update the port number, username and password as per your local database config and storage file path configuration.
     
-```
+```properties
 spring.datasource.url=jdbc:mysql://localhost:3306/mydb;
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.datasource.username=root
@@ -49,39 +49,39 @@ user this data for checking purpose.
 > 5. Create Import Controller to use import file data.
 
 ## Important Dependency to be used
-```
+```xml
 <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-web</artifactId>
+</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
 
-		<dependency>
-			<groupId>com.mysql</groupId>
-			<artifactId>mysql-connector-j</artifactId>
-			<scope>runtime</scope>
-		</dependency>
+<dependency>
+	<groupId>com.mysql</groupId>
+	<artifactId>mysql-connector-j</artifactId>
+	<scope>runtime</scope>
+</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
-		<dependency>
-			<groupId>org.apache.poi</groupId>
-			<artifactId>poi-ooxml</artifactId>
-			<version>5.4.0</version>
-		</dependency>
+<!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+<dependency>
+	<groupId>org.apache.poi</groupId>
+	<artifactId>poi-ooxml</artifactId>
+	<version>5.4.0</version>
+</dependency>
 
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-		</dependency>
+<dependency>
+	<groupId>org.projectlombok</groupId>
+	<artifactId>lombok</artifactId>
+	<optional>true</optional>
+</dependency>
 ```
 
 ## Configure Mysql configuration in application.properties file.
-```
+```properties
 #Mysql Configuration
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.datasource.url=jdbc:mysql://localhost:3306/importdata
@@ -92,7 +92,7 @@ spring.jpa.hibernate.ddl-auto= create-drop
 ```
 
 ## Create Product class in Entity Package.
-```
+```java
 @Getter
 @Setter
 @Entity
@@ -123,7 +123,7 @@ public class Product {
 
 ## Create ProductRepository interface in repository package.
 
-```
+```java
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Integer> {
 
@@ -133,7 +133,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 ## Create Method in Import Service class for import Excel data into a Database.
 
 ### *ImportService*
-```
+```java
 @Service
 public class ImportService {
 
@@ -197,7 +197,7 @@ public class ImportService {
 
 ### *Create ImportController class inside the Controller Package.* 
 
-```
+```java
 @RestController
 @RequestMapping("/product")
 public class ImportController {
@@ -235,7 +235,7 @@ public class ImportController {
 
 ### *PostMan Test Cases*
 
-### *Note- Please use the Excel file inside into ExcelFile Folder. 
+### *Note- Please use the Excel file inside into ExcelFile Folder*. 
 Url - http://localhost:8080/product/upload
 ![image](https://github.com/user-attachments/assets/2cdc90c0-0a14-4c73-9719-a8bdbd45cae5)
 
@@ -246,6 +246,8 @@ Url - http://localhost:8080/product/read-data
 
 ![image](https://github.com/user-attachments/assets/3553fdf6-28d6-4e32-8997-b393d282f594)
 
+### Excel file Data
+![image](https://github.com/user-attachments/assets/735b5d3d-6e31-4965-b4af-841076d82f22)
 
 
 
