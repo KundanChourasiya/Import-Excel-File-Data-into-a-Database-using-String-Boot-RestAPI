@@ -35,7 +35,7 @@ https://localhost:8080/
 user this data for checking purpose.
 ```
 ## Step To Be Followed
-> 1. Create Rest Api will return to FileData Details.
+> 1. Create Rest Api will return to Excel file import Details.
 >    
 >    **Project Documentation**
 >    - **Entity** - Product (class)
